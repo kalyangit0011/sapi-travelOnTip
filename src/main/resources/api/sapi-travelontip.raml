@@ -1,0 +1,44 @@
+#%RAML 1.0
+title: sapi-TravelOnTip
+description: This API fetch routes and schedules from TravelOnTip system
+
+uses:
+  all-fragments: common/all-fragments-library.raml
+
+types:
+  routes-200-response: !include /routes/dataTypes/200-response-dataType.raml
+  schedules-200-response: !include /schedules/dataTypes/200-response-dataType.raml
+
+traits:
+  routes-headers: !include routes/traits/routes-headers-trait.raml
+  schedules-headers: !include /schedules/traits/schedules-headers-trait.raml
+  schedules-queryParams: !include /schedules/traits/schedules-queryParams-trait.raml
+  common-errors: !include /common/common-errors-trait.raml
+
+/{transportType}:
+  /{transportCompany}:
+    /routes:
+      get:
+        is:
+          - all-fragments.routes-headers
+          - all-fragments.common-errors
+        responses:
+          200:
+            body:
+              application/json:
+                type: all-fragments.routes-200-response
+                example: !include /routes/examples/200-response-example.json
+                  
+    /schedules:   
+      get:
+        is:
+          - all-fragments.schedules-headers
+          - all-fragments.schedules-queryParams
+          - all-fragments.common-errors
+        responses:
+          200:
+            body:
+              application/json:
+                type: all-fragments.schedules-200-response   
+                example: !include /schedules/examples/200-response-example.json
+                                                 

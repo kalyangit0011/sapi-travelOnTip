@@ -1,0 +1,11 @@
+#%RAML 1.0 Library
+usage:
+traits:
+  routes-headers: !include ../routes/traits/routes-headers-trait.raml
+  schedules-headers: !include ../schedules/traits/schedules-headers-trait.raml
+  schedules-queryParams: !include ../schedules/traits/schedules-queryParams-trait.raml
+  common-errors: !include ../common/common-errors-trait.raml
+
+types:
+  routes-200-response: !include ../routes/dataTypes/200-response-dataType.raml
+  schedules-200-response: !include ../schedules/dataTypes/200-response-dataType.raml  

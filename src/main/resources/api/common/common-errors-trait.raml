@@ -1,0 +1,50 @@
+#%RAML 1.0 Trait
+responses:
+  400:
+    body:
+      application/json:
+        type: object
+        properties:
+          statusCode:
+            type: number
+            example: 400
+          message: 
+            type: string
+            example: "error message" 
+        example:
+          {
+            "statusCode": 400,
+            "message": "Bad Request"
+          }
+  404:
+    body:
+      application/json:
+        type: object
+        properties:
+          statusCode:
+            type: number
+            example: 404
+          message: 
+            type: string
+            example: "error message" 
+        example:
+          {
+            "statusCode": 404,
+            "message": "Bad Request"
+          }
+  500:
+    body:
+      application/json:
+        type: object
+        properties:
+          statusCode:
+            type: number
+            example: 500
+          message: 
+            type: string
+            example: "error message" 
+        example:
+          {
+            "statusCode": 500,
+            "message": "Bad Request"
+          }                     
